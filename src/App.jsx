@@ -5,7 +5,7 @@ import SKILLS from "./componants/sections/Skills";
 import Project from "./componants/sections/Projects"
 import  EXPERIENCES  from "./componants/sections/Experience";
 import  Contact  from "./componants/sections/Contact";
-import Footer from "./componants/layout/Footer";
+import Footer from "./componants/layout/FooterTemp";
 
 const App = () => {
   return (
