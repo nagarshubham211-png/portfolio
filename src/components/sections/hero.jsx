@@ -4,7 +4,7 @@ import {
   Download,
 } from "lucide-react";
 
-import profile from '../../assets/profile.jpeg'
+import profile from '../../assets/profile.png'
 
 import {
   SiReact,
