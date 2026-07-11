@@ -82,7 +82,7 @@ const Footer = () => {
             {/* SOCIALS */}
             <div className="flex items-center gap-4 mt-8">
               <a
-                href="https://github.com/"
+                href="https://github.com/nagarshubham211-png"
                 target="_blank"
                 rel="noreferrer"
                 className="group relative flex items-center justify-center w-12 h-12 rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl overflow-hidden hover:border-cyan-300/20 transition-all duration-300"
@@ -96,7 +96,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://linkedin.com/"
+                href="https://www.linkedin.com/in/shubham-kumar-sharma-94018b254/"
                 target="_blank"
                 rel="noreferrer"
                 className="group relative flex items-center justify-center w-12 h-12 rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl overflow-hidden hover:border-cyan-300/20 transition-all duration-300"
@@ -110,7 +110,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://instagram.com/"
+                href="https://www.instagram.com/shubham_nagar21"
                 target="_blank"
                 rel="noreferrer"
                 className="group relative flex items-center justify-center w-12 h-12 rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl overflow-hidden hover:border-cyan-300/20 transition-all duration-300"

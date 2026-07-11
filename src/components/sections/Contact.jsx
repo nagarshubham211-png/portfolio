@@ -21,17 +21,17 @@ import RadialGradientBackground from "../backgrounds/RadialGradientBackground";
 const socialLinks = [
   {
     icon: SiGithub,
-    link: "https://github.com/yourusername",
+    link: "https://github.com/nagarshubham211-png",
   },
 
   {
     icon: FaLinkedin,
-    link: "https://linkedin.com/in/yourusername",
+    link: "https://www.linkedin.com/in/shubham-kumar-sharma-94018b254/",
   },
 
   {
     icon: SiInstagram,
-    link: "https://instagram.com/yourusername",
+    link: "https://www.instagram.com/shubham_nagar21",
   },
 ];
 

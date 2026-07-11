@@ -12,54 +12,54 @@ import RadialGradientBackground from "../backgrounds/RadialGradientBackground";
 
 const projects = [
   {
-    title: "Modern Portfolio",
+    title: "Resulyze AI – Smart Resume Analyzer",
 
     description:
-      "Premium personal portfolio with futuristic UI, smooth animations, responsive layouts, and modern frontend architecture.",
+      "An AI-powered resume analyzer that evaluates resumes, provides resume scores, suggests keyword improvements, and delivers real-time insights through an interactive and responsive user interface.",
 
     image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+      "/images/resulyze-ai.png", // Screenshot add karo
 
-    tech: ["React", "Tailwind", "Framer Motion"],
+    tech: ["React.js", "Tailwind CSS", "JavaScript", "AI API"],
 
-    live: "#",
-    github: "#",
+    live: "https://resulyze-ai-six.vercel.app/",
+    github: "https://github.com/nagarshubham211-png/Resulyze-AI-",
 
-    category: "Frontend Development",
+    category: "AI Web Application",
   },
 
   {
-    title: "E-Commerce Website",
+    title: "Cartify – E-Commerce Web Application",
 
     description:
-      "Modern ecommerce experience with product filtering, responsive layouts, premium UI sections, and smooth interactions.",
+      "A responsive e-commerce application featuring product browsing, filtering, shopping cart management, and a modern user experience powered by React Context API.",
 
     image:
-      "https://images.unsplash.com/photo-1556740749-887f6717d7e4",
+      "/images/cartify.png",
 
-    tech: ["React", "JavaScript", "CSS"],
+    tech: ["React.js", "Tailwind CSS", "JavaScript", "Context API"],
 
-    live: "#",
-    github: "#",
+    live: "https://cartify-phi-livid.vercel.app/",
+    github: "https://github.com/nagarshubham211-png/Cartify",
 
-    category: "Web Application",
+    category: "E-Commerce",
   },
 
   {
-    title: "Admin Dashboard",
+    title: "Admin Dashboard - Web App",
 
     description:
-      "Responsive analytics dashboard featuring charts, cards, modern layouts, reusable components, and dark UI experience.",
+      "A modern analytics dashboard with interactive charts, responsive navigation, reusable UI components, and real-time data visualization for an enhanced admin experience.",
 
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+      "/images/admin-dashboard.png",
 
-    tech: ["React", "Tailwind", "Charts"],
+    tech: ["React.js", "Tailwind CSS", "Recharts", "JavaScript"],
 
-    live: "#",
-    github: "#",
+    live: "https://ai-saa-s-admin-dashboard-yzz1.vercel.app/",
+    github: "https://github.com/nagarshubham211-png/AI-SaaS-Admin-Dashboard",
 
-    category: "Dashboard UI",
+    category: "Dashboard",
   },
 ];
 

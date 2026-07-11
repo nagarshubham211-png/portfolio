@@ -34,13 +34,13 @@ export const NAV_LINKS = [{ id: "home", label: "Home" }, { id: "about", label: "
 // ===============================
 
 export const SOCIAL_LINKS = {
-  github: "https://github.com/yourusername",
+  github: "https://github.com/nagarshubham211-png",
 
   linkedin:
-    "https://linkedin.com/in/yourusername",
+    "https://www.linkedin.com/in/shubham-kumar-sharma-94018b254/",
 
   instagram:
-    "https://instagram.com/yourusername",
+    "https://www.instagram.com/shubham_nagar21",
 };
 
 
