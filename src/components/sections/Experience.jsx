@@ -12,7 +12,7 @@ const experiences = [
   {
     role: "Frontend Developer",
     company: "Ujjwal Technolabs",
-    duration: "May 2024 — Present",
+    duration: "May 2025 — july 2026",
     description:
       "Building scalable frontend systems, premium UI experiences, responsive applications, and high-performance interfaces using React, TailwindCSS, JavaScript, and modern frontend workflows.",
     tech: [
@@ -27,7 +27,7 @@ const experiences = [
   {
     role: "Frontend Development Intern",
     company: "FunctionUp",
-    duration: "Jan 2024 — Apr 2024",
+    duration: "Jan 2025 — Apr 2025",
     description:
       "Worked on reusable components, responsive layouts, API integrations, and modern frontend practices while collaborating on real-world development projects.",
     tech: [

@@ -22,7 +22,7 @@ const aboutCards = [
   {
     icon: Layers3,
     title: "Projects",
-    value: "5+ Completed",
+    value: "15+ Completed",
     description:
       "Landing pages, dashboards, portfolio websites & UI systems.",
   },
