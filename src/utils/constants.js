@@ -19,7 +19,7 @@ export const PERSONAL_INFO = {
 
   location: "Indore, Madhya Pradesh, India",
 
-  resume: "/resume.pdf",
+  resume: "/Shubham_Sharma_Frontend_Developer_Resume.pdf",
 };
 
 
