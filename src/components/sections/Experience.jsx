@@ -27,14 +27,13 @@ const experiences = [
   {
     role: "Frontend Development Intern",
     company: "FunctionUp",
-    duration: "Jan 2025 — Apr 2025",
+    duration: "Nov 2024 - March 2025",
     description:
       "Worked on reusable components, responsive layouts, API integrations, and modern frontend practices while collaborating on real-world development projects.",
     tech: [
       "HTML5",
       "CSS3",
       "JavaScript",
-      "React",
       "GitHub",
     ],
   },

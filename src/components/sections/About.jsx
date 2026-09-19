@@ -185,7 +185,7 @@ const About = () => {
 
                 <div>
                   <h4 className="text-3xl font-black text-cyan-300">
-                    5+
+                    15+
                   </h4>
 
                   <p className="mt-1 text-sm text-white/45">

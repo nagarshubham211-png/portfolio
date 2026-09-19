@@ -1,3 +1,4 @@
+
 import React, {
   useState,
   useEffect,
@@ -31,6 +32,7 @@ import {
   useScrollSpy,
 } from "../../hooks/useScrollSpy";
 
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] =
     useState(false);
@@ -45,6 +47,7 @@ const Navbar = () => {
     NAV_LINKS.map((link) => link.id)
   );
 
+
   /* =========================
      SCROLL EFFECTS
   ========================= */
@@ -56,16 +59,14 @@ const Navbar = () => {
 
       setIsScrolled(currentScrollY > 20);
 
-      /* progress */
       const totalHeight =
-        document.documentElement
-          .scrollHeight -
-        document.documentElement
-          .clientHeight;
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
 
       const progress =
-        (currentScrollY / totalHeight) *
-        100;
+        totalHeight > 0
+          ? (currentScrollY / totalHeight) * 100
+          : 0;
 
       setScrollProgress(progress);
     };
@@ -86,9 +87,7 @@ const Navbar = () => {
     window.addEventListener(
       "scroll",
       optimizedScroll,
-      {
-        passive: true,
-      }
+      { passive: true }
     );
 
     return () =>
@@ -97,6 +96,7 @@ const Navbar = () => {
         optimizedScroll
       );
   }, []);
+
 
   /* =========================
      LOCK BODY SCROLL
@@ -112,13 +112,16 @@ const Navbar = () => {
     };
   }, [isMenuOpen]);
 
-  const handleNavClick = (
-    sectionId
-  ) => {
-    scrollToSection(sectionId);
 
+  /* =========================
+     NAVIGATION
+  ========================= */
+
+  const handleNavClick = (sectionId) => {
+    scrollToSection(sectionId);
     setIsMenuOpen(false);
   };
+
 
   return (
     <motion.nav
@@ -139,7 +142,10 @@ const Navbar = () => {
           : "bg-transparent"
       }`}
     >
-      {/* PROGRESS BAR */}
+
+      {/* =========================
+          PROGRESS BAR
+      ========================= */}
 
       <motion.div
         className="absolute top-0 left-0 h-[2px] bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 shadow-[0_0_20px_rgba(34,211,238,0.8)]"
@@ -148,19 +154,25 @@ const Navbar = () => {
         }}
       />
 
+
       {/* TOP LIGHT */}
 
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/20 to-transparent"></div>
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/20 to-transparent" />
+
 
       {/* NOISE */}
 
-      <div className="absolute inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+      <div className="absolute inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
-        <div className="flex items-center justify-between h-[76px]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
-          {/* ================= LOGO ================= */}
+        <div className="flex items-center justify-between gap-3 h-[76px]">
+
+
+          {/* =========================
+              LOGO
+          ========================= */}
 
           <button
             onClick={() =>
@@ -169,45 +181,58 @@ const Navbar = () => {
                 behavior: "smooth",
               })
             }
-            className="group relative flex items-center gap-4"
+            className="group relative flex items-center gap-3 sm:gap-4 shrink-0"
           >
+
             <div className="relative flex items-center justify-center">
 
-              <div className="absolute w-10 h-10 rounded-full bg-cyan-400/20 blur-2xl"></div>
+              <div className="absolute w-10 h-10 rounded-full bg-cyan-400/20 blur-2xl" />
 
               <Code2
                 size={24}
                 className="relative text-cyan-300 transition-all duration-500 group-hover:rotate-6 group-hover:scale-110"
               />
+
             </div>
+
 
             <div className="flex flex-col">
 
-              <h1 className="text-[22px] font-black tracking-[-0.04em] bg-gradient-to-r from-white via-cyan-100 to-cyan-300 bg-clip-text text-transparent">
+              <h1 className="text-[20px] sm:text-[22px] font-black tracking-[-0.04em] bg-gradient-to-r from-white via-cyan-100 to-cyan-300 bg-clip-text text-transparent">
                 {PERSONAL_INFO.name}
               </h1>
+
 
               <div className="flex items-center gap-2 mt-1">
 
                 <div className="relative flex items-center justify-center">
 
-                  <div className="absolute w-3 h-3 rounded-full bg-emerald-400/30 animate-ping"></div>
+                  <div className="absolute w-3 h-3 rounded-full bg-emerald-400/30 animate-ping" />
 
-                  <div className="relative w-1.5 h-1.5 rounded-full bg-emerald-300"></div>
+                  <div className="relative w-1.5 h-1.5 rounded-full bg-emerald-300" />
+
                 </div>
 
-                <span className="text-[10px] uppercase tracking-[0.28em] text-cyan-100/45">
+                <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.22em] sm:tracking-[0.28em] text-cyan-100/45">
                   Frontend Engineer
                 </span>
+
               </div>
+
             </div>
+
           </button>
 
-          {/* ================= DESKTOP NAV ================= */}
 
-          <div className="hidden md:flex items-center gap-2 bg-white/[0.03] border border-white/[0.06] px-2 py-2 rounded-full backdrop-blur-xl overflow-hidden">
+          {/* =========================
+              DESKTOP NAV
+              1401px+
+          ========================= */}
+
+          <div className="hidden min-[1401px]:flex items-center gap-1.5 2xl:gap-2 bg-white/[0.03] border border-white/[0.06] px-2 py-2 rounded-full backdrop-blur-xl whitespace-nowrap shrink-0">
 
             {NAV_LINKS.map((link) => {
+
               const active =
                 activeSection === link.id;
 
@@ -217,7 +242,7 @@ const Navbar = () => {
                   onClick={() =>
                     handleNavClick(link.id)
                   }
-                  className="relative px-5 py-2.5 rounded-full text-[14px] font-medium"
+                  className="relative px-4 2xl:px-5 py-2.5 rounded-full text-[14px] font-medium whitespace-nowrap"
                 >
 
                   {active && (
@@ -233,62 +258,86 @@ const Navbar = () => {
                   >
                     {link.label}
                   </span>
+
                 </button>
               );
             })}
+
           </div>
 
-          {/* ================= RIGHT SIDE ================= */}
 
-          <div className="hidden md:flex items-center gap-3">
+          {/* =========================
+              RIGHT SIDE ACTIONS
+          ========================= */}
 
-            {/* GITHUB */}
+          <div className="flex items-center gap-2 shrink-0">
+
+
+            {/* =========================
+                GITHUB
+                640px+
+            ========================= */}
 
             <a
               href="https://github.com/nagarshubham211-png"
               target="_blank"
               rel="noreferrer"
-              className="w-11 h-11 rounded-xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl flex items-center justify-center text-white/70 hover:text-cyan-200 hover:bg-cyan-400/[0.08] transition-all duration-300"
+              className="hidden sm:flex w-10 h-10 lg:w-11 lg:h-11 rounded-xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl items-center justify-center text-white/70 hover:text-cyan-200 hover:bg-cyan-400/[0.08] transition-all duration-300"
+              aria-label="GitHub"
             >
               <FaGithub size={18} />
             </a>
 
-            {/* LINKEDIN */}
+
+            {/* =========================
+                LINKEDIN
+                640px+
+            ========================= */}
 
             <a
               href="https://www.linkedin.com/in/shubham-kumar-sharma-94018b254/"
               target="_blank"
               rel="noreferrer"
-              className="w-11 h-11 rounded-xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl flex items-center justify-center text-white/70 hover:text-cyan-200 hover:bg-cyan-400/[0.08] transition-all duration-300"
+              className="hidden sm:flex w-10 h-10 lg:w-11 lg:h-11 rounded-xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl items-center justify-center text-white/70 hover:text-cyan-200 hover:bg-cyan-400/[0.08] transition-all duration-300"
+              aria-label="LinkedIn"
             >
               <FaLinkedin size={18} />
             </a>
 
-            {/* RESUME */}
+
+            {/* =========================
+                RESUME
+                640px+
+            ========================= */}
 
             <a
               href={PERSONAL_INFO.resume}
               download
-              className="group relative overflow-hidden px-5 py-3 rounded-2xl border border-white/[0.08] bg-white/[0.03] text-white text-[14px] font-semibold backdrop-blur-xl transition-all duration-300 hover:bg-white/[0.06]"
+              className="hidden sm:flex items-center gap-2 px-3 lg:px-4 py-2.5 lg:py-3 rounded-xl lg:rounded-2xl border border-white/[0.08] bg-white/[0.03] text-white text-[13px] lg:text-[14px] font-semibold backdrop-blur-xl transition-all duration-300 hover:bg-white/[0.06] whitespace-nowrap"
             >
-              <span className="flex items-center gap-2">
+              <span className="hidden md:inline">
                 Resume
-                <Download size={16} />
               </span>
+
+              <Download size={16} />
             </a>
 
-            {/* CTA */}
+
+            {/* =========================
+                HIRE ME
+                1024px+
+            ========================= */}
 
             <button
               onClick={() =>
                 handleNavClick("contact")
               }
-              className="group relative overflow-hidden px-6 py-3 rounded-2xl bg-gradient-to-br from-cyan-300 via-sky-400 to-blue-500 text-[#03111F] text-[14px] font-bold transition-all duration-500 hover:scale-[1.04] hover:shadow-[0_10px_40px_rgba(34,211,238,0.28)]"
+              className="hidden min-[1024px]:flex group relative overflow-hidden whitespace-nowrap px-4 lg:px-5 2xl:px-6 py-2.5 lg:py-3 rounded-xl lg:rounded-2xl bg-gradient-to-br from-cyan-300 via-sky-400 to-blue-500 text-[#03111F] text-[13px] lg:text-[14px] font-bold transition-all duration-500 hover:scale-[1.04] hover:shadow-[0_10px_40px_rgba(34,211,238,0.28)]"
             >
 
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.35),transparent_60%)]"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.35),transparent_60%)]" />
 
-              <div className="absolute top-0 -left-[120%] w-[120%] h-full bg-gradient-to-r from-transparent via-white/30 to-transparent rotate-12 group-hover:left-[120%] transition-all duration-1000"></div>
+              <div className="absolute top-0 -left-[120%] w-[120%] h-full bg-gradient-to-r from-transparent via-white/30 to-transparent rotate-12 group-hover:left-[120%] transition-all duration-1000" />
 
               <span className="relative z-10 flex items-center gap-2">
                 Hire Me
@@ -298,31 +347,52 @@ const Navbar = () => {
                   className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
                 />
               </span>
+
             </button>
+
+
+            {/* =========================
+                HAMBURGER
+                BELOW 1401px
+            ========================= */}
+
+            <button
+              onClick={() =>
+                setIsMenuOpen(!isMenuOpen)
+              }
+              className="min-[1401px]:hidden relative z-50 flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-xl text-white hover:border-cyan-300/30 hover:bg-cyan-400/[0.08] transition-all duration-300"
+              aria-label={
+                isMenuOpen
+                  ? "Close menu"
+                  : "Open menu"
+              }
+              aria-expanded={isMenuOpen}
+            >
+
+              {isMenuOpen ? (
+                <X size={21} />
+              ) : (
+                <Menu size={21} />
+              )}
+
+            </button>
+
           </div>
 
-          {/* ================= MOBILE BUTTON ================= */}
-
-          <button
-            onClick={() =>
-              setIsMenuOpen(!isMenuOpen)
-            }
-            className="md:hidden relative z-50 flex items-center justify-center w-11 h-11 rounded-xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-xl text-white"
-          >
-            {isMenuOpen ? (
-              <X size={22} />
-            ) : (
-              <Menu size={22} />
-            )}
-          </button>
         </div>
+
       </div>
 
-      {/* ================= MOBILE MENU ================= */}
+
+      {/* =========================
+          RESPONSIVE MENU
+          BELOW 1401px
+      ========================= */}
 
       <AnimatePresence>
 
         {isMenuOpen && (
+
           <motion.div
             initial={{
               opacity: 0,
@@ -339,64 +409,138 @@ const Navbar = () => {
             transition={{
               duration: 0.35,
             }}
-            className="md:hidden px-4 pb-5"
+            className="min-[1401px]:hidden px-4 sm:px-6 lg:px-10 pb-5"
           >
-            <div className="rounded-3xl border border-cyan-400/[0.08] bg-[#0A0F1C]/95 backdrop-blur-2xl p-4 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
 
-              <div className="space-y-2">
+            <div className="max-w-7xl mx-auto">
 
-                {NAV_LINKS.map(
-                  (link, index) => (
-                    <motion.button
-                      key={link.id}
-                      initial={{
-                        opacity: 0,
-                        x: -20,
-                      }}
-                      animate={{
-                        opacity: 1,
-                        x: 0,
-                      }}
-                      transition={{
-                        delay:
-                          index * 0.06,
-                      }}
-                      onClick={() =>
-                        handleNavClick(
+              <div className="rounded-3xl border border-cyan-400/[0.08] bg-[#0A0F1C]/95 backdrop-blur-2xl p-4 sm:p-5 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+
+
+                {/* =========================
+                    NAV LINKS
+                ========================= */}
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+
+                  {NAV_LINKS.map(
+                    (link, index) => (
+
+                      <motion.button
+                        key={link.id}
+                        initial={{
+                          opacity: 0,
+                          x: -20,
+                        }}
+                        animate={{
+                          opacity: 1,
+                          x: 0,
+                        }}
+                        transition={{
+                          delay: index * 0.06,
+                        }}
+                        onClick={() =>
+                          handleNavClick(
+                            link.id
+                          )
+                        }
+                        className={`w-full text-left px-5 py-4 rounded-2xl text-[15px] font-medium transition-all duration-300 ${
+                          activeSection ===
                           link.id
-                        )
-                      }
-                      className={`w-full text-left px-5 py-4 rounded-2xl text-[15px] font-medium transition-all duration-300 ${
-                        activeSection ===
-                        link.id
-                          ? "bg-cyan-400/[0.10] border border-cyan-300/[0.14] text-white"
-                          : "text-white/60 hover:text-white hover:bg-white/[0.05]"
-                      }`}
-                    >
-                      {link.label}
-                    </motion.button>
-                  )
-                )}
+                            ? "bg-cyan-400/[0.10] border border-cyan-300/[0.14] text-white"
+                            : "text-white/60 hover:text-white hover:bg-white/[0.05] border border-transparent"
+                        }`}
+                      >
+
+                        <span className="flex items-center justify-between">
+
+                          {link.label}
+
+                          {activeSection ===
+                            link.id && (
+                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-300 shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
+                          )}
+
+                        </span>
+
+                      </motion.button>
+
+                    )
+                  )}
+
+                </div>
+
+
+                {/* =========================
+                    EXTRA ACTIONS
+                ========================= */}
+
+                <div className="grid grid-cols-2 gap-2 mt-3">
+
+                  <a
+                    href="https://github.com/nagarshubham211-png"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl border border-white/[0.08] bg-white/[0.03] text-white/70 hover:text-cyan-200 hover:bg-cyan-400/[0.08] transition-all duration-300"
+                  >
+                    <FaGithub size={17} />
+                    GitHub
+                  </a>
+
+
+                  <a
+                    href="https://www.linkedin.com/in/shubham-kumar-sharma-94018b254/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl border border-white/[0.08] bg-white/[0.03] text-white/70 hover:text-cyan-200 hover:bg-cyan-400/[0.08] transition-all duration-300"
+                  >
+                    <FaLinkedin size={17} />
+                    LinkedIn
+                  </a>
+
+                </div>
+
+
+                {/* RESUME */}
+
+                <a
+                  href={PERSONAL_INFO.resume}
+                  download
+                  className="flex items-center justify-center gap-2 w-full mt-3 px-5 py-4 rounded-2xl border border-white/[0.08] bg-white/[0.03] text-white font-semibold hover:bg-white/[0.06] transition-all duration-300"
+                >
+                  Resume
+                  <Download size={17} />
+                </a>
+
+
+                {/* HIRE ME */}
+
+                <button
+                  onClick={() =>
+                    handleNavClick("contact")
+                  }
+                  className="w-full mt-3 px-5 py-4 rounded-2xl bg-gradient-to-br from-cyan-300 via-sky-400 to-blue-500 text-[#03111F] text-[15px] font-bold transition-all duration-300 hover:scale-[1.01] hover:shadow-[0_10px_40px_rgba(34,211,238,0.25)]"
+                >
+                  <span className="flex items-center justify-center gap-2">
+                    Hire Me
+                    <ArrowUpRight size={17} />
+                  </span>
+                </button>
+
               </div>
 
-              {/* MOBILE CTA */}
-
-              <button
-                onClick={() =>
-                  handleNavClick(
-                    "contact"
-                  )
-                }
-                className="w-full mt-4 px-5 py-4 rounded-2xl bg-gradient-to-br from-cyan-300 via-sky-400 to-blue-500 text-[#03111F] text-[15px] font-bold"
-              >
-                Hire Me
-              </button>
             </div>
+
           </motion.div>
+
         )}
+
       </AnimatePresence>
+
     </motion.nav>
   );
 };
 
+
 export default Navbar;
+

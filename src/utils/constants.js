@@ -56,12 +56,12 @@ export const STATS = [
 
   {
     label: "Projects Completed",
-    value: "5+",
+    value: "15+",
   },
 
   {
     label: "Technologies",
-    value: "10+",
+    value: "12+",
   },
 
   {
@@ -81,7 +81,7 @@ export const EXPERIENCES = [
 
     role: "Frontend Developer",
 
-    duration: "May 2024 - May 2026",
+    duration: "May 2025 - July 2026",
 
     description:
       "Built responsive and modern frontend interfaces using React.js, Tailwind CSS, JavaScript, and component-based architecture.",
@@ -92,7 +92,7 @@ export const EXPERIENCES = [
 
     role: "Frontend Development Intern",
 
-    duration: "Jan 2024 - Apr 2024",
+    duration: "Nov 2024 - March 2025",
 
     description:
       "Worked on frontend development fundamentals, responsive layouts, reusable UI components, and modern web development practices.",
